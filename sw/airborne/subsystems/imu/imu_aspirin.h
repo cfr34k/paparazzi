@@ -31,10 +31,22 @@
 #include "peripherals/itg3200.h"
 #include "peripherals/hmc5843.h"
 #include "peripherals/adxl345.h"
+#include "led.h"
 
+#ifdef IMU_ASPIRIN_VERSION_1_5
+#warning Using Aspirin v1.5
+#define IMU_MAG_X_CHAN 2
+#define IMU_MAG_Y_CHAN 0
+#define IMU_MAG_Z_CHAN 1
+#define IMU_MAG_X_SIGN    1
+#define IMU_MAG_Y_SIGN   -1
+#define IMU_MAG_Z_SIGN    1
+#else // default aspirin settings
+#warning Using default Aspirin version
 #define IMU_MAG_X_CHAN 0
 #define IMU_MAG_Y_CHAN 1
 #define IMU_MAG_Z_CHAN 2
+#endif // IMU_ASPIRIN_VERSION_1_5
 
 #if !defined IMU_GYRO_P_SIGN & !defined IMU_GYRO_Q_SIGN & !defined IMU_GYRO_R_SIGN
 #define IMU_GYRO_P_SIGN   1
