@@ -210,9 +210,9 @@
     <define name="PROPAGATE_FREQUENCY" value="512"/>
     <!--define name="AHRS_MAG_UPDATE_YAW_ONLY" value="1"/-->
     <!-- Home -->
-    <define name="H_X" value=" 0.427602"/>
-    <define name="H_Y" value=" 0.016833"/>
-    <define name="H_Z" value=" 0.903810"/>
+    <define name="H_X" value=" 0.427611"/>
+    <define name="H_Y" value=" 0.016829"/>
+    <define name="H_Z" value=" 0.903806"/>
     <!-- Camp Berlin -->
     <!--define name="H_X" value=" 0.373032"/>
     <define name="H_Y" value=" 0.019489"/>

@@ -48,7 +48,7 @@ static inline void led_init ( void ) {
 
 #ifdef LED_3_BANK
   LED_INIT(3);
-  LED_OFF(3);
+  LED_ON(3);
 #endif /* LED_3_BANK */
 
 #ifdef LED_4_BANK
