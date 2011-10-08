@@ -511,7 +511,7 @@
     <field name="count" type="int16" unit=""/>
     <field name="shutter" type="uint8" unit="s"/>
   </message>
- 
+
   <message name="AMSYS_BARO" id="65">
     <field name="pBaroRaw" type="uint16"></field>
     <field name="pBaro" type="float" unit="Pa"> </field>
@@ -2169,6 +2169,12 @@
    <field name="xd"     type="float" unit="m"/>
    <field name="y"      type="float" unit="m"/>
    <field name="yd"     type="float" unit="m"/>
+ </message>
+
+ <message name="BOOZ_CAM_STICK" id="152" link="forwarded">
+   <field name="ac_id" type="uint8"/>
+   <field name="tilt" type="int8"/>
+   <field name="pan" type="int8"/>
  </message>
 
 </class>

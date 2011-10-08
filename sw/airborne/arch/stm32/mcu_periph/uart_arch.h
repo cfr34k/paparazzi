@@ -31,6 +31,7 @@
 
 #include "std.h"
 
+#define B4800     4800
 #define B9600     9600
 #define B38400   38400
 #define B57600   57600
@@ -70,8 +71,8 @@
 #define UART5_PeriphTx RCC_APB2Periph_GPIOC
 #define UART5_PeriphRx RCC_APB2Periph_GPIOD
 
-/* this is unexpected the macros in spektrum_arch.c 
-   didn't expect that rx and tx would be spilt over 
+/* this is unexpected the macros in spektrum_arch.c
+   didn't expect that rx and tx would be spilt over
    two ports. As the spektrum code is only interested
    in the rx pin we define this to be the Peripheral */
 #define UART5_Periph RCC_APB2Periph_GPIOD
