@@ -87,8 +87,7 @@ $(TARGET).srcs += math/pprz_geodetic_int.c math/pprz_geodetic_float.c math/pprz_
 #
 # I2C
 #
-$(TARGET).srcs += mcu_periph/i2c.c
-$(TARGET).srcs += $(SRC_ARCH)/mcu_periph/i2c_arch.c
+include $(CFG_SHARED)/i2c_select.makefile
 
 ######################################################################
 ##
@@ -215,10 +214,10 @@ jsbsim.srcs 		+= $(SIMDIR)/sim_ac_jsbsim.c $(SIMDIR)/sim_ac_fw.c $(SIMDIR)/sim_a
 
 # external libraries
 jsbsim.CFLAGS 		+= -I$(SIMDIR) -I/usr/include -I$(JSBSIM_INC) -I$(OCAMLLIBDIR) `pkg-config glib-2.0 --cflags`
-jsbsim.LDFLAGS		+= `pkg-config glib-2.0 --libs` -lm -lpcre -lglibivy -L/usr/lib -lJSBSim
+jsbsim.LDFLAGS		+= `pkg-config glib-2.0 --libs` -lglibivy -lm -L/usr/lib -lJSBSim
 
 jsbsim.CFLAGS 		+= -DDOWNLINK -DDOWNLINK_TRANSPORT=IvyTransport
-jsbsim.srcs 		+= downlink.c $(SRC_FIRMWARE)/datalink.c $(SRC_ARCH)/jsbsim_hw.c $(SRC_ARCH)/jsbsim_ir.c $(SRC_ARCH)/jsbsim_gps.c $(SRC_ARCH)/ivy_transport.c $(SRC_ARCH)/jsbsim_transport.c
+jsbsim.srcs 		+= downlink.c $(SRC_FIRMWARE)/datalink.c $(SRC_ARCH)/jsbsim_hw.c $(SRC_ARCH)/jsbsim_ir.c $(SRC_ARCH)/jsbsim_gps.c $(SRC_ARCH)/jsbsim_ahrs.c $(SRC_ARCH)/ivy_transport.c $(SRC_ARCH)/jsbsim_transport.c
 
 jsbsim.srcs 		+= subsystems/settings.c
 jsbsim.srcs 		+= $(SRC_ARCH)/subsystems/settings_arch.c
