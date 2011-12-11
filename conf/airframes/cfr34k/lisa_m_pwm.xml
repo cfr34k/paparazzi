@@ -124,9 +124,9 @@
  </section>
 
  <section name="BAT">
-   <define name="MILLIAMP_PER_PERCENT" value="0.86"/>
+   <define name="MILLIAMP_AT_FULL_THROTTLE" value="30000"/>
    <define name="CATASTROPHIC_BAT_LEVEL" value="9.8" unit="V"/>
-   <define name="BATTERY_SENS"   value="0.512" integer="16"/>
+   <!--define name="BATTERY_SENS"   value="0.512" integer="16"/-->
  </section>
 
 
@@ -269,10 +269,10 @@
 
   <firmware name="lisa_m_test_progs">
     <target name="test_led"			board="lisa_m_1.0"/>
-    <target name="test_uart_lisam"			board="lisa_m_1.0"/>
+    <target name="test_uart_lisam"		board="lisa_m_1.0"/>
     <target name="test_servos"			board="lisa_m_1.0"/>
     <target name="test_telemetry"		board="lisa_m_1.0"/>
-    <target name="test_imu_aspirin"			board="lisa_m_1.0"/>
+    <target name="test_imu_aspirin"		board="lisa_m_1.0"/>
     <target name="test_rc_spektrum"		board="lisa_m_1.0"/>
     <target name="test_baro"			board="lisa_m_1.0"/>
 
