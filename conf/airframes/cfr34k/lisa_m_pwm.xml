@@ -147,8 +147,11 @@
     <!-- setpoints -->
     <define name="SP_MAX_PHI"     value="RadOfDeg(45.)"/>
     <define name="SP_MAX_THETA"   value="RadOfDeg(45.)"/>
+    <define name="SP_MAX_PSI"   value="RadOfDeg(45.)"/>
     <define name="SP_MAX_R"       value="RadOfDeg(90.)"/>
+    <define name="SP_MAX_P"       value="RadOfDeg(90.)"/>
     <define name="DEADBAND_R"     value="250"/>
+    <define name="DEADBAND_A"     value="250"/>
 
     <!-- reference -->
     <define name="REF_OMEGA_P"  value="RadOfDeg(800)"/>
@@ -208,7 +211,7 @@
 
   <section name="AHRS" prefix="AHRS_">
     <define name="PROPAGATE_FREQUENCY" value="512"/>
-    <!--define name="AHRS_MAG_UPDATE_YAW_ONLY" value="1"/-->
+    <define name="AHRS_MAG_UPDATE_YAW_ONLY" value="1"/>
     <!-- Home -->
     <define name="H_X" value=" 0.427611"/>
     <define name="H_Y" value=" 0.016829"/>
@@ -259,11 +262,10 @@
       <subsystem name="actuators"     type="mkk"/>
     </target>
 
-    <subsystem name="imu"           type="aspirin"/>
+    <subsystem name="imu"           type="aspirin_v1.5"/>
     <!--subsystem name="gps"           type="ublox"/-->
-    <subsystem name="stabilization"   type="euler"/>
-    <subsystem name="ahrs"          type="ic"/>
-    <define name="IMU_ASPIRIN_VERSION_1_5"/>
+    <subsystem name="stabilization"   type="quaternion"/>
+    <subsystem name="ahrs"          type="int_cmpl_quat"/>
   </firmware>
 
 
