@@ -51,8 +51,8 @@
       <message name="ALIVE"             period="2.1"/>
 <!--      <message name="BOOZ2_ALIGNER"     period=".1"/> -->
       <message name="FILTER"      period=".5"/>
-<!--      <message name="BOOZ2_AHRS_QUAT"   period=".25"/> -->
-      <message name="BOOZ2_AHRS_EULER"  period=".1"/>
+      <!--message name="AHRS_REF_QUAT"   period=".06"/-->
+      <message name="BOOZ2_AHRS_EULER"  period=".06"/>
 <!--      <message name="BOOZ2_AHRS_RMAT"   period=".5"/> -->
     </mode>
 

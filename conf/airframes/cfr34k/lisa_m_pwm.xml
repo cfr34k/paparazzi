@@ -70,12 +70,19 @@
 
 
     <!-- Kalibriert auf der Terasse -->
-    <define name="MAG_X_NEUTRAL" value="-86"/>
+    <!--define name="MAG_X_NEUTRAL" value="-86"/>
     <define name="MAG_Y_NEUTRAL" value="-82"/>
     <define name="MAG_Z_NEUTRAL" value="38"/>
     <define name="MAG_X_SENS" value="3.98741072553" integer="16"/>
     <define name="MAG_Y_SENS" value="3.88470057062" integer="16"/>
-    <define name="MAG_Z_SENS" value="4.42579709688" integer="16"/>
+    <define name="MAG_Z_SENS" value="4.42579709688" integer="16"/-->
+
+    <define name="MAG_X_NEUTRAL" value="0"/>
+    <define name="MAG_Y_NEUTRAL" value="0"/>
+    <define name="MAG_Z_NEUTRAL" value="0"/>
+    <define name="MAG_X_SENS" value="0" integer="16"/>
+    <define name="MAG_Y_SENS" value="0" integer="16"/>
+    <define name="MAG_Z_SENS" value="0" integer="16"/>
 
     <define name="BODY_TO_IMU_PHI"   value="RadOfDeg(    0. )"/>
     <define name="BODY_TO_IMU_THETA" value="RadOfDeg(    0. )"/>
