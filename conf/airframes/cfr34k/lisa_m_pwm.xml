@@ -201,6 +201,7 @@
 
  <section name="MISC">
    <define name="FACE_REINJ_1"  value="1024"/>
+   <define name="RADIO_CONTROL_LED" value="3"/>
  </section>
 
  <section name="SIMULATOR" prefix="NPS_">
