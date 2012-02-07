@@ -104,6 +104,14 @@ void autopilot_periodic(void) {
         autopilot_in_flight, autopilot_motors_on);
   }
 
+#ifdef AUTOPILOT_IN_FLIGHT_LED
+  if(autopilot_in_flight) {
+    LED_ON(AUTOPILOT_IN_FLIGHT_LED);
+  } else {
+    LED_OFF(AUTOPILOT_IN_FLIGHT_LED);
+  }
+#endif
+
 }
 
 
