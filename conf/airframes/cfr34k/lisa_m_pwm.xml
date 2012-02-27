@@ -49,7 +49,7 @@
 
     <define name="GYRO_P_NEUTRAL" value="-48"/>
     <define name="GYRO_Q_NEUTRAL" value="-43"/>
-    <define name="GYRO_R_NEUTRAL" value="-17"/>
+    <define name="GYRO_R_NEUTRAL" value="-66"/>
     <define name="GYRO_P_SENS" value="4.355" integer="16"/>
     <define name="GYRO_Q_SENS" value="4.355" integer="16"/>
     <define name="GYRO_R_SENS" value="4.355" integer="16"/>
@@ -235,7 +235,7 @@
     </target>
 
     <subsystem name="imu"           type="aspirin_v1.5"/>
-    <subsystem name="stabilization"   type="quaternion"/>
+    <subsystem name="stabilization"   type="euler"/>
     <subsystem name="ahrs"          type="int_cmpl_quat"/>
   </firmware>
 
