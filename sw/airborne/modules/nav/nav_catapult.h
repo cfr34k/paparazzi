@@ -1,7 +1,6 @@
 /*
- * $Id$
  *
- * Copyright (C) 2008-2009 Antoine Drouin <poinix@gmail.com>
+ * Copyright (C) 2012, Christophe De Wagter
  *
  * This file is part of paparazzi.
  *
@@ -19,17 +18,30 @@
  * along with paparazzi; see the file COPYING.  If not, write to
  * the Free Software Foundation, 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
+ *
  */
 
-#include "firmwares/rotorcraft/stabilization.h"
+/**
+ * @file module/nav/nav_catapult.h
+ * @brief catapult launch timing system
+ */
 
-int32_t stabilization_cmd[COMMANDS_NB];
+#ifndef NAV_CATAPULT_H
+#define NAV_CATAPULT_H
 
-void stabilization_init(void) {
-#ifndef STABILIZATION_SKIP_RATE
-  stabilization_none_init();
-  stabilization_rate_init();
+#include "std.h"
+#include "paparazzi.h"
+
+// Module Code
+void nav_catapult_highrate_module(void);
+
+// Flightplan Code
+extern bool_t nav_catapult_init(void);
+
+extern bool_t nav_catapult_arm(void);
+extern bool_t nav_catapult(uint8_t _to, uint8_t _climb);
+extern bool_t nav_catapult_disarm(void);
+
+extern bool_t nav_select_touch_down(uint8_t _td);
+
 #endif
-  stabilization_attitude_init();
-}
-
