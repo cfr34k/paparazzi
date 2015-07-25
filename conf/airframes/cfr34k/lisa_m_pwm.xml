@@ -8,6 +8,14 @@
     <servo name="SW" no="3" min="1000" neutral="1170" max="1920"/>
   </servos>
 
+  <command_laws>
+    <call fun="motor_mixing_run(autopilot_motors_on, FALSE, values)"/>
+    <set servo="NW" value="motor_mixing.commands[SERVO_NW]"/>
+    <set servo="NE"  value="motor_mixing.commands[SERVO_NE]"/>
+    <set servo="SE" value="motor_mixing.commands[SERVO_SE]"/>
+    <set servo="SW"  value="motor_mixing.commands[SERVO_SW]"/>
+  </command_laws>
+
   <commands>
     <axis name="PITCH" failsafe_value="0"/>
     <axis name="ROLL" failsafe_value="0"/>
@@ -50,14 +58,6 @@
     <define name="YAW_COEF"    value="{  128, -128,  128,  128 }"/>
     <define name="THRUST_COEF" value="{  256,  256,  256,  256 }"/>
   </section>
-
-  <command_laws>
-    <call fun="motor_mixing_run(autopilot_motors_on, FALSE, values)"/>
-    <set servo="FRONT" value="motor_mixing.commands[SERVO_FRONT]"/>
-    <set servo="BACK"  value="motor_mixing.commands[SERVO_BACK]"/>
-    <set servo="RIGHT" value="motor_mixing.commands[SERVO_RIGHT]"/>
-    <set servo="LEFT"  value="motor_mixing.commands[SERVO_LEFT]"/>
-  </command_laws>
 
   <section name="IMU" prefix="IMU_">
     <define name="GYRO_P_NEUTRAL" value="-61.0"/>
@@ -106,7 +106,7 @@
   </section>
 
   <section name="BAT">
-    <define name="MILLIAMP_AT_FULL_THROTTLE" value="40000"/>
+    <define name="MILLIAMP_AT_FULL_THROTTLE" value="60000"/>
     <!-- Add 0.7V to each value for the safety diode ;-) -->
     <define name="MAX_BAT_LEVEL" value="12.6" unit="V"/> <!-- 12.6V -->
     <define name="LOW_BAT_LEVEL" value="10.4" unit="V"/> <!-- 10.4V -->
@@ -209,6 +209,7 @@
       <define name="BAT_CHECKER_LED" value="4"/>
     </load>
     <load name="geo_mag.xml" />
+    <load name="send_imu_mag_current.xml" />
   </modules>
 
   <firmware name="rotorcraft">
