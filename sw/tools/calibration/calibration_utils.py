@@ -90,7 +90,15 @@ def read_log_mag_current(ac_id, filename):
             break
         m = re.match(pattern, line)
         if m:
-            list_meas.append([float(m.group(2)), float(m.group(3)), float(m.group(4)), float(m.group(5))])
+            mx = float(m.group(2))
+            my = float(m.group(3))
+            mz = float(m.group(4))
+            cur = float(m.group(5))
+
+            if abs(mx) > 2048 or abs(my) > 2048 or abs(mz) > 2048:
+                continue
+            else:
+                list_meas.append([float(m.group(2)), float(m.group(3)), float(m.group(4)), float(m.group(5))])
     return np.array(list_meas)
 
 
