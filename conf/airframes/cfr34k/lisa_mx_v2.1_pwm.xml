@@ -2,18 +2,18 @@
 <!-- this is a custom frame equipped with Lisa/M and generic china pwm motor controllers -->
 <airframe name="cfr34k_copter">
   <servos driver="Pwm">
-    <servo name="NW" no="0" min="1000" neutral="1170" max="1920"/>
-    <servo name="NE" no="1" min="1000" neutral="1170" max="1920"/>
-    <servo name="SE" no="2" min="1000" neutral="1170" max="1920"/>
-    <servo name="SW" no="3" min="1000" neutral="1170" max="1920"/>
+    <servo name="FL" no="0" min="1000" neutral="1170" max="1920"/>
+    <servo name="FR" no="1" min="1000" neutral="1170" max="1920"/>
+    <servo name="BR" no="2" min="1000" neutral="1170" max="1920"/>
+    <servo name="BL" no="3" min="1000" neutral="1170" max="1920"/>
   </servos>
 
   <command_laws>
     <call fun="motor_mixing_run(autopilot_motors_on, FALSE, values)"/>
-    <set servo="NW" value="motor_mixing.commands[MOTOR_FRONT_LEFT]"/>
-    <set servo="NE"  value="motor_mixing.commands[MOTOR_FRONT_RIGHT]"/>
-    <set servo="SE" value="motor_mixing.commands[MOTOR_BACK_LEFT]"/>
-    <set servo="SW"  value="motor_mixing.commands[MOTOR_BACK_RIGHT]"/>
+    <set servo="FL" value="motor_mixing.commands[MOTOR_FRONT_LEFT]"/>
+    <set servo="FR" value="motor_mixing.commands[MOTOR_FRONT_RIGHT]"/>
+    <set servo="BR" value="motor_mixing.commands[MOTOR_BACK_RIGHT]"/>
+    <set servo="BL" value="motor_mixing.commands[MOTOR_BACK_LEFT]"/>
   </command_laws>
 
   <commands>
@@ -54,6 +54,7 @@
     <define name="THRUST_COEF" value="{  256,  256,  256,  256 }"/-->
 
     <define name="TYPE" value="QUAD_X" />
+    <define name="REVERSE" value="1" />
   </section>
 
   <section name="IMU" prefix="IMU_">
@@ -81,6 +82,10 @@
     <define name="MAG_Y_SENS" value="3.43628851891" integer="16"/>
     <define name="MAG_Z_SENS" value="4.09068605595" integer="16"/>
 
+    <define name= "MAG_X_CURRENT_COEF" value="0.0140062678574"/>
+    <define name= "MAG_Y_CURRENT_COEF" value="0.00349028070047"/>
+    <define name= "MAG_Z_CURRENT_COEF" value="-0.0114888243586"/>
+
     <define name="BODY_TO_IMU_PHI"   value="0" unit="deg" />
     <define name="BODY_TO_IMU_THETA" value="0" unit="deg" />
     <!-- old frame: define name="BODY_TO_IMU_PSI" value="RadOfDeg(  -45. )"/ -->
@@ -96,6 +101,7 @@
 
   <section name="BAT">
     <define name="MILLIAMP_AT_FULL_THROTTLE" value="60000"/>
+    <define name="MILLIAMP_AT_IDLE_THROTTLE" value="4500"/>
     <!-- Add 0.7V to each value for the safety diode ;-) -->
     <define name="MAX_BAT_LEVEL" value="12.6" unit="V"/> <!-- 12.6V -->
     <define name="LOW_BAT_LEVEL" value="10.4" unit="V"/> <!-- 10.4V -->
@@ -137,15 +143,15 @@
 
     <!-- feedback -->
     <!-- TODO: Update for new motors -->
-    <define name="PHI_PGAIN"   value="850"/> <!-- neu: 850 -->
-    <define name="PHI_DGAIN"   value="450"/> <!-- neu: 600 -->
-    <define name="PHI_IGAIN"   value="5"/>
-    <define name="THETA_PGAIN" value="850"/> <!-- neu: 850 -->
-    <define name="THETA_DGAIN" value="450"/> <!-- neu: 600 -->
-    <define name="THETA_IGAIN" value="5"/>
-    <define name="PSI_PGAIN"   value="1000"/>
-    <define name="PSI_DGAIN"   value="400"/>
-    <define name="PSI_IGAIN"   value="5"/>
+    <define name="PHI_PGAIN"   value="1000"/> <!-- neu: 850 -->
+    <define name="PHI_DGAIN"   value="400"/> <!-- neu: 600 -->
+    <define name="PHI_IGAIN"   value="200"/>
+    <define name="THETA_PGAIN" value="1000"/> <!-- neu: 850 -->
+    <define name="THETA_DGAIN" value="400"/> <!-- neu: 600 -->
+    <define name="THETA_IGAIN" value="200"/>
+    <define name="PSI_PGAIN"   value="1500"/>
+    <define name="PSI_DGAIN"   value="700"/>
+    <define name="PSI_IGAIN"   value="10"/>
 
     <!-- feedforward -->
     <define name="PHI_DDGAIN" value=" 300"/>
